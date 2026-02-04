@@ -16,8 +16,20 @@ INSTALLED_APPS = [
     'onlinecourse',
 ]
 
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
 ROOT_URLCONF = 'final_project.urls'
 WSGI_APPLICATION = 'final_project.wsgi.application'
+
+STATIC_URL = 'static/'
 
 DATABASES = {
     'default': {
