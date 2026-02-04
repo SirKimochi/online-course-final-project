@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="display-4">{{ course.name }}</h1>
+    <p class="lead">{{ course.description }}</p>
+
+    <div class="card-columns">
+        {% for lesson in course.lesson_set.all %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Lesson {{ forloop.counter }}: {{ lesson.title }}</h5>
+                <p class="card-text">{{ lesson.content }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'onlinecourse:exam' course.id %}" class="btn btn-primary mt-3">Take the Exam</a>
+</div>
+</body>
+</html>
